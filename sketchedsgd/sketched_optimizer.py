@@ -533,7 +533,7 @@ class SketchedSum:
             summed = sum([topk(v, self.opt.p1 * self.opt.k) for v in vs])
         else:
             summed = sum(vs)
-        self.workerSketches[0] += summed
+        self.workerSketches[0].accumulateVec(summed)
 
     def _aggAndZeroSketched(self):
         """Aggregate the sketches of each worker
